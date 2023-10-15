@@ -5,7 +5,7 @@ available on the gov.uk website */
 SELECT *
 FROM [dbo].[price_sold]
 
- --Noticed column called 'city' includes towns. Renamed column to city_or_town
+ -- I note that the column called 'city' includes towns. Changed column name from city to city_or_town
  USE PortfolioProjectProperty
  EXEC sp_rename 'price_sold.city',
  'city_or_town'
@@ -38,7 +38,7 @@ GROUP BY city_or_town
 HAVING LOWER(city_or_town) = 'london'
 
 
--- Query 3: Create a table showing all properties that were sold for less than or equal to Â£200k in 2022?
+-- Query 3: Can you create a list of all the properties that were sold for less than or equal to £200k in 2022?
 SELECT *
 FROM [dbo].[price_sold]
 WHERE price_paid <= 2000000
@@ -72,13 +72,13 @@ UPDATE [dbo].[price_sold]
 SET property_type = 'Other'
 WHERE property_type = 'O';
 
---Query 5:Lowest and highest price for each property type 
+--Query 5:what is the Lowest and highest price for each property type?
 
 SELECT MIN(price_paid) AS lowest_price,MAX(price_paid) AS highest_price, property_type
 FROM [dbo].[price_sold]
 GROUP BY property_type 
 
---Query 6: Whata is the average pricepaid by quarter
+--Query 6: What is the average price paid by quarter?
 
 -- First I created a view and added a column to sort the dates into quarter
 CREATE VIEW price_sold_view 

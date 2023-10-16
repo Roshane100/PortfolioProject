@@ -38,10 +38,10 @@ GROUP BY city_or_town
 HAVING LOWER(city_or_town) = 'london'
 
 
--- Query 3: Can you create a list of all the properties that were sold for less than or equal to £200k in 2022?
+-- Query 3: Can you create a list of all the properties that were sold for less than or equal to Â£200k in 2022?
 SELECT *
 FROM [dbo].[price_sold]
-WHERE price_paid <= 2000000
+WHERE price_paid <= 200000
 ORDER BY price_paid
 
 
